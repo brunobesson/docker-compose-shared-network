@@ -1,0 +1,19 @@
+version: "3.2"
+
+services:
+  proxy:
+    image: nginx:alpine
+    ports:
+      - target: 80
+        published: 8080
+    networks:
+      - my_network
+    volumes:
+      - source: ./nginx.http.conf
+        target: /etc/nginx/conf.d/default.conf
+        type: bind
+
+networks:
+  my_network:
+    external:
+      name: shared_network

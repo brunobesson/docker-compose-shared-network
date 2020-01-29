@@ -1,0 +1,11 @@
+version: "3.5"
+
+services:
+  back:
+    image: crccheck/hello-world
+    networks:
+      - back
+
+networks:
+  back:
+    name: shared_network
